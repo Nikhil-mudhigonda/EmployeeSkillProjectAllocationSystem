@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EmployeeSkillProjectAllocationSystem.Models.Skill>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var skill in Model)
+        {
+            <tr>
+                <td>@skill.Id</td>
+                <td>@skill.Name</td>
+                <td>@skill.IsActive</td>
+                <td><a asp-action="Edit" asp-route-id="@skill.Id">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+    <a asp-action="Create">Add a Skill</a>
+</table>

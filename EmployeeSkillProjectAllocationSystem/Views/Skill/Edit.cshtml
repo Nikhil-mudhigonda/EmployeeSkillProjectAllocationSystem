@@ -1,0 +1,18 @@
+﻿@model Skill
+
+<h2>Edit Skill</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id"/>
+    <div>
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name"/>
+        <span asp-validation-for="Name"></span>
+
+        <label asp-for="IsActive"></label>
+        <input asp-for="IsActive"/>
+        <span asp-validation-for="IsActive"></span>
+        <br />
+        <button type="submit" class="p-1 btn btn-primary m-2">Edit</button>
+    </div>
+</form>
