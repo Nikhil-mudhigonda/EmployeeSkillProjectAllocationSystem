@@ -1,0 +1,27 @@
+﻿@model EmployeeSkillProjectAllocationSystem.ViewModels.EmployeeCreateViewModel
+
+<h2>Create Employee</h2>
+
+<form method="post" asp-action="Create">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name"/>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        @foreach (var skill in Model.Skills)
+        {
+            <div>
+                <input type="checkbox" name="SelectedSkillId" value="@skill.Value" />
+                <label>@skill.Text</label>
+            </div>
+        }
+            
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <br />
+    <br />
+    <a asp-controller="Home" asp-action="Index">Back</a>
+</form>
