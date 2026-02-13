@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Employee>
+
+<h2>Employees</h2>
+
+<div>
+    <a asp-action="Create" class="btn btn-secondary">Add Employee</a>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Skills
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Name</td>
+                        <td>@string.Join(", ", emp.EmployeeSkills.Select(x => x.skill.Name))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

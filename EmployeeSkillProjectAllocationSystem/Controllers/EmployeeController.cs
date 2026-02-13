@@ -17,6 +17,17 @@ namespace EmployeeSkillProjectAllocationSystem.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var result = await _context.Employees
+                .Where(e => e.IsActive)
+                .Include(e => e.EmployeeSkills)
+                .ThenInclude(x => x.skill)
+                .ToListAsync();
+
+            return View(result);
+        }
+
         public async Task<IActionResult> Create()
         {
             var EmpVM = new EmployeeCreateViewModel();
