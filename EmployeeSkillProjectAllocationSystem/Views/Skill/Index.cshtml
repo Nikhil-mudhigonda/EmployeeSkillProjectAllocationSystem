@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<EmployeeSkillProjectAllocationSystem.Models.Skill>
 
 
-
+<h2>Skills</h2>
+<div class="row">
+    <a asp-action="Create" class="btn btn-primary col-2 m-2">Add a Skill</a>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -11,6 +14,10 @@
             <th>
                 Name
             </th>
+            <th>
+                isActive
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,5 +31,5 @@
             </tr>
         }
     </tbody>
-    <a asp-action="Create">Add a Skill</a>
+    
 </table>

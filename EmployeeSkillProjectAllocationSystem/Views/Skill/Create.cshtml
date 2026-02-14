@@ -6,10 +6,9 @@
         <input asp-for="Name" type="text"/>
         <span asp-validation-for="Name"></span>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-    <div>
-        <a asp-action="Index">Back to Skills</a>
+    <br />
+    <div class="row">
+        <button type="submit" class="btn btn-primary col-3 m-2">Save</button>
+        <a asp-action="Index" class="row btn btn-secondary col-3 m-2">Back to Skills</a>
     </div>
 </form>

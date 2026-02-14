@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Project>
+
+
+<h2>Project Teams</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Team</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@string.Join(", ", project.EmployeeProjects.Select(x => x.Employee.Name))</td>
+            </tr>
+        }
+    </tbody>
+</table>

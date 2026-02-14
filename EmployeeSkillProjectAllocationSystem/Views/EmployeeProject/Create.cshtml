@@ -1,0 +1,27 @@
+﻿@model EmployeeSkillProjectAllocationSystem.ViewModels.EmployeeProjectViewModel
+
+<h2>Assign Project</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Employee Name</label>
+        <select asp-for="EmployeeId" asp-items="Model.Employees" class="form-control"></select>
+    </div>
+    <br />
+    <br />
+    <div>
+        <label>Projects</label>
+        <select asp-for="ProjectId" asp-items="Model.Projects" class="form-control"></select>
+    </div>
+    <br>
+    <div>
+        <label>Role</label>
+        <input asp-for="Role" class="form-text" />
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <button type="submit" class=" btn btn-primary col-3 m-2">Save</button>
+        <a asp-action="Index" class="btn btn-secondary col-3 m-2">Back</a>
+    </div>
+</form>

@@ -3,25 +3,39 @@
 <h2>Employees</h2>
 
 <div>
-    <a asp-action="Create" class="btn btn-secondary">Add Employee</a>
+    @if (User.IsInRole("HR"))
+    {
+        <div class="row">
+            <a asp-action="Create" class="btn btn-primary col-2 m-2">Add Employee</a>
+        </div>
+    }
     <div>
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Name
+                        Employee Name
                     </th>
                     <th>
                         Skills
                     </th>
+                    <th>Projects</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach(var emp in Model)
                 {
                     <tr>
                         <td>@emp.Name</td>
                         <td>@string.Join(", ", emp.EmployeeSkills.Select(x => x.skill.Name))</td>
+                        <td>@string.Join(", ", emp.EmployeeProjects.Select(x => x.Project.Name +" (" + x.Role + " )"))</td>
+                        @if (!User.IsInRole("Employee"))
+                        {
+                            <td><a class="btn btn-primary m-1" asp-action="Delete" asp-route-id="@emp.Id">Remove</a></td>
+                        }
+                        
                     </tr>
                 }
             </tbody>

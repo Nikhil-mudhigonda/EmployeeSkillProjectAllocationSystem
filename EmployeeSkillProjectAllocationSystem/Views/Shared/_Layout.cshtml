@@ -25,24 +25,45 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if(User.Identity.IsAuthenticated && User.IsInRole("HR"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Skill" asp-action="Index">Skills</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Project" asp-action="Index">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Employee" asp-action="Index">Employees</a>
-                            </li>
-                        }
-                        @if(User.Identity.IsAuthenticated && User.IsInRole("Manager"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Project" asp-action="Index">Projects</a>
-                            </li>
-                        }
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if(User.Identity.IsAuthenticated && User.IsInRole("HR"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="Skill" asp-action="Index">Skills</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="Project" asp-action="Index">Projects</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="Employee" asp-action="Index">Employee</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="ProjectTeam" asp-action="Index">ProjectTeams</a>
+                                    </li>
+                                }
+                                @if(User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+                                {
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="Project" asp-action="Index">Projects</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" asp-controller="ProjectTeam" asp-action="Index">ProjectTeams</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                }
+                                @if (User.IsInRole("Employee"))
+                                {
+                                    
+                                }
+                            </ul>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

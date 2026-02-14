@@ -1,14 +1,16 @@
 ﻿@model EmployeeSkillProjectAllocationSystem.ViewModels.EmployeeCreateViewModel
 
 <h2>Create Employee</h2>
-
+<br />
 <form method="post" asp-action="Create">
     <div>
         <label asp-for="Name"></label>
         <input asp-for="Name"/>
         <span asp-validation-for="Name"></span>
     </div>
+    <br />
     <div>
+        <label class="fw-bold">Roles</label>
         @foreach (var skill in Model.Skills)
         {
             <div>
@@ -16,12 +18,11 @@
                 <label>@skill.Text</label>
             </div>
         }
-            
     </div>
     <br />
     <br />
-    <button type="submit" class="btn btn-primary">Save</button>
-    <br />
-    <br />
-    <a asp-controller="Home" asp-action="Index">Back</a>
+    <div class="row">
+        <button type="submit" class="btn btn-primary col-2 m-2">Save</button>
+        <a asp-action="Index" class="btn btn-secondary col-2 m-2">Back</a>
+    </div>
 </form>

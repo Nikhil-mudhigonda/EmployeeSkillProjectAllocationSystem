@@ -23,6 +23,8 @@ namespace EmployeeSkillProjectAllocationSystem.Controllers
                 .Where(e => e.IsActive)
                 .Include(e => e.EmployeeSkills)
                 .ThenInclude(x => x.skill)
+                .Include(e => e.EmployeeProjects)
+                .ThenInclude(e => e.Project)
                 .ToListAsync();
 
             return View(result);
@@ -65,6 +67,18 @@ namespace EmployeeSkillProjectAllocationSystem.Controllers
             }
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Employee emp)
+        {
+            return View();
         }
     }
 }
