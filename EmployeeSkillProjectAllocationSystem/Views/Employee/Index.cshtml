@@ -31,10 +31,6 @@
                         <td>@emp.Name</td>
                         <td>@string.Join(", ", emp.EmployeeSkills.Select(x => x.skill.Name))</td>
                         <td>@string.Join(", ", emp.EmployeeProjects.Select(x => x.Project.Name +" (" + x.Role + " )"))</td>
-                        @if (!User.IsInRole("Employee"))
-                        {
-                            <td><a class="btn btn-primary m-1" asp-action="Delete" asp-route-id="@emp.Id">Remove</a></td>
-                        }
                         
                     </tr>
                 }

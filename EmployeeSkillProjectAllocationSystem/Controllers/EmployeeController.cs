@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeSkillProjectAllocationSystem.Controllers
 {
-    [Authorize(Roles = "HR")]
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -69,16 +68,5 @@ namespace EmployeeSkillProjectAllocationSystem.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Edit(int id)
-        {
-            
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(int id, Employee emp)
-        {
-            return View();
-        }
     }
 }

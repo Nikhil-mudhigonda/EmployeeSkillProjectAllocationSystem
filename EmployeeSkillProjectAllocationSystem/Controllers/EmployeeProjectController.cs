@@ -19,7 +19,7 @@ namespace EmployeeSkillProjectAllocationSystem.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View();
+            return RedirectToAction("Index", "Employee", new { area = "" });
         }
 
         public async Task<IActionResult> Create()
